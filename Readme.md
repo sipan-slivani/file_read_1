@@ -1,5 +1,5 @@
 # CSV file Read 
-this is simple project to read csv file and print to console \
+this is simple project to read csv file and print to console. \
 howto: 
 1. run a program
 2. define extension (csv file )
