@@ -1,7 +1,7 @@
 use std::io;
 
-pub fn stream_to_int() -> i32 {
-    println!("Stream to integer:");
+pub fn stream_to_int(str: &str) -> i32 {
+    println!("Stream to integer:{}", str);
 
     let mut input = String::new();
     let mut kk = -1;
@@ -27,8 +27,8 @@ pub fn stream_to_int() -> i32 {
     kk
 }
 
-pub fn stream_to_String() -> String {
-    println!("stream to String:");
+pub fn stream_to_string(str: &str) -> String {
+    println!("stream to String:{}:", str);
 
     let mut input = String::new();
     let mut kk = "".to_string();

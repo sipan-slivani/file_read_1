@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="WSL - Debian" type="wsl" uuid="52f5d465-f6ed-45b4-8cc7-2cd328db2099">
+        <config>
+          <option name="distributionMsId" value="Debian" />
+          <option name="projectRootOnTarget" value="{exitCode=0, timeout=false, cancelled=false, stdout=/mnt/c/Program Files/JetBrains/CLion 2023.1.4/jbr/bin&#10;, stderr=}/file_read_1" />
+        </config>
+        <ContributedStateBase type="RsLanguageRuntime">
+          <config>
+            <option name="cargoPath" value="/home/sipandev/.cargo/bin/cargo" />
+            <option name="cargoVersion" value="1.72.1 (103a7ff2e 2023-08-15)" />
+            <option name="rustcPath" value="/home/sipandev/.cargo/bin/rustc" />
+            <option name="rustcVersion" value="1.72.1 (d5c2e9c34 2023-09-13)" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>

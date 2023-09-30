@@ -1,27 +1,24 @@
+use std::fs;
 use std::fs::File;
-use std::io::Read;
+use std::io::{BufRead, BufReader, Read};
+use std::path::PathBuf;
 
-pub fn read_file(str: &str) {
-    // Open the file for reading
-    let mut file = match File::open(str) {
-        Ok(file) => file,
-        Err(e) => {
-            eprintln!("Error opening file: {}", e);
-            return;
-        }
-    };
-
-    // Create a buffer to store the file contents
-    let mut contents = String::new();
-
-    // Read the file contents into the buffer
-    match file.read_to_string(&mut contents) {
-        Ok(_) => {
-            // Successfully read the file
-            println!("File contents:\n{}", contents);
-        }
-        Err(e) => {
-            eprintln!("Error reading file: {}", e);
-        }
+pub fn read_file(mut str: &str) -> std::io::Result<()> {
+    if str.is_empty() {
+        str = ".";
     }
+
+    let path = PathBuf::from(str);
+    let absolute_path = fs::canonicalize(&path)?;
+
+    println!("Absolute path: {:?}", absolute_path);
+
+    let file = fs::File::open(&absolute_path);
+    let reader = BufReader::new(file?);
+
+    for line in reader.lines() {
+        let line = line?;
+        println!("{}", line);
+    }
+    Ok(())
 }
