@@ -1,6 +1,6 @@
 # CSV file Read 
 this is simple project to read csv file and print to console \
-howto:\
+howto: 
 1. run a program
 2. define extension (csv file )
 3. define the path of csv file 
