@@ -20,20 +20,11 @@ fn main() {
         println!("{}  -  {}", i, j);
     }
 
-    // println!(" {} ")
-    let num = stream_to_int("file index:");
-
-    // println!("{}", v1[num as usize]);
-    // read_file(v1[num as usize].as_str()).expect("file dont read");
+    let num = stream_to_int("file index:").unwrap();
 
     let v1 = csv_r(v1[num as usize].clone()).expect("csv reading fail");
 
     for i in v1 {
         print!("  {i}  ");
     }
-
-    // let v2 = match v1 {
-    //     Ok(str) => {str}
-    //     Err(e) => {println!("{}",e);}
-    // }
 }

@@ -1,30 +1,16 @@
 use std::io;
+use std::num::ParseIntError;
 
-pub fn stream_to_int(str: &str) -> i32 {
+pub fn stream_to_int(str: &str) -> Result<i32, ParseIntError> {
     println!("Stream to integer:{}", str);
 
     let mut input = String::new();
-    let mut kk = -1;
-    match io::stdin().read_line(&mut input) {
-        Ok(_) => {
-            // Attempt to parse the input as an i32
-            match input.trim().parse::<i32>() {
-                Ok(number) => {
-                    //kk=number;
-                    // println!("You entered: {}", number);
-                    kk = number;
-                }
-                Err(e) => {
-                    eprintln!("Error parsing input as an integer: {}", e);
-                }
-            }
-        }
-        Err(e) => {
-            eprintln!("Error reading input: {}", e);
-        }
-    }
+    io::stdin()
+        .read_line(&mut input)
+        .expect("not reading stream integer");
+    let kk = input.trim().parse::<i32>()?;
 
-    kk
+    Ok(kk)
 }
 
 pub fn stream_to_string(str: &str) -> String {
@@ -32,24 +18,11 @@ pub fn stream_to_string(str: &str) -> String {
 
     let mut input = String::new();
     let mut kk = "".to_string();
-    match io::stdin().read_line(&mut input) {
-        Ok(_) => {
-            // Attempt to parse the input as an i32
-            match input.trim().parse::<String>() {
-                Ok(number) => {
-                    //kk=number;
-                    // println!("You entered: {}", number);
-                    kk = number;
-                }
-                Err(e) => {
-                    eprintln!("Error parsing input as an integer: {}", e);
-                }
-            }
-        }
-        Err(e) => {
-            eprintln!("Error reading input: {}", e);
-        }
-    }
+    let ss = io::stdin()
+        .read_line(&mut input)
+        .expect("not reading String Stream");
+    kk = input.trim().parse::<String>().unwrap();
+    println!("{ss}");
 
     kk
 }
